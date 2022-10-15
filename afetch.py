@@ -10,6 +10,7 @@ info = {
 	"processes": "(ps ax | wc -l; echo ', '; cat /proc/loadavg | cut -d' ' -f1,2,3; echo ' load average')",
 	"packages": "pacman -Q | wc -l",
 	"shell": "echo $SHELL",
+	"desktop": "echo $XDG_SESSION_DESKTOP, $XDG_SESSION_TYPE",
 	"cpu": "(cat /proc/cpuinfo | grep 'model name' | uniq | cut -d':' -f2 | xargs; echo ', '; cat /proc/cpuinfo | grep 'cpu cores' | uniq | cut -d: -f2 | xargs; echo ' cores')",
 	"gpu": "lspci | grep -i vga | cut -d':' -f3 | xargs",
 	"mem": "(free --mega | grep Mem | cut -d':' -f2 | xargs | cut -d' ' -f2; echo ' MB / '; free --mega | grep Mem | cut -d':' -f2 | xargs | cut -d' ' -f1; echo ' MB, ';cat /proc/meminfo | grep Dirty | cut -d':' -f 2 | xargs; echo ' dirty')"
